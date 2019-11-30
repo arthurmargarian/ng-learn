@@ -1,0 +1,26 @@
+<div class="container">
+  <button class="btn btn-secondary m-1" (click)="getUser('1')">User N 1</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('2')">User N 2</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('3')">User N 3</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('4')">User N 4</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('5')">User N 5</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('6')">User N 6</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('7')">User N 7</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('8')">User N 8</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('9')">User N 9</button>
+  <button class="btn btn-secondary m-1" (click)="getUser('10')">User N 10</button>
+
+  <div class="card" style="width: 25rem;" *ngIf="currentUser">
+    <div class="card-body">
+      <h5 class="card-title">{{currentUser.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{currentUser.email}}</h6>
+      <ul class="list-group">
+        <li class="list-group-item">Address : <strong>{{currentUser.address.street}}/{{currentUser.address.city}} </strong></li>
+        <li class="list-group-item">Phone : <strong> {{currentUser.phone}}</strong></li>
+        <li class="list-group-item">Website : <strong> {{currentUser.website}}</strong></li>
+        <li class="list-group-item">Company : <strong>{{currentUser.company.name}}</strong></li>
+      </ul>
+    </div>
+  </div>
+
+</div>

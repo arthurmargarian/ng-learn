@@ -1,0 +1,61 @@
+<div class="container">
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <h1>Angular Forms</h1>
+
+    <div>
+      <label>Email</label>
+      <input type="text" placeholder="Email" formControlName="email">
+      <div class="validation" *ngIf="form.get('email').invalid && form.get('email').touched">
+        <small class="text-danger" *ngIf="form.get('email').errors.required">Can not be empty</small>
+        <small class="text-danger" *ngIf="form.get('email').errors.email">Enter Valid mail</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Пароль</label>
+      <input type="password" placeholder="Пароль" formControlName="password">
+      <div
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+        class="validation"
+      >
+        <small class="text-danger" *ngIf="form.get('password').errors.required ">
+          password can not be empty
+        </small>
+        <small class="text-danger" *ngIf="form.get('password').errors.minlength">
+          length must be more then {{form.get('password').errors.minlength.requiredLength}}
+        </small>
+      </div>
+    </div>
+
+    <div class="card" formGroupName="address">
+      <h2>Адрес</h2>
+
+      <div>
+        <label>Страна</label>
+
+        <select formControlName="country">
+          <option value="ru">Россия</option>
+          <option value="ua">Украина</option>
+          <option value="by">Беларусь</option>
+        </select>
+      </div>
+
+      <div>
+        <input type="text" formControlName="city" placeholder="city">
+      </div>
+
+      <button class="btn btn-secondary m-2" type='button' (click)="setCapital()">Выбрать столицу</button>
+    </div>
+
+    <div class="card">
+      <h2>Ваши навыки</h2>
+      <button class="btn btn-secondary  m-2" type='button' (click)="addSkill()">Добавить умение</button>
+      <div *ngFor="let control of form.get('skills').controls;let idx = index">
+        <label>Skill n {{idx + 1}}:</label>
+        <input type="text">
+      </div>
+    </div>
+
+    <button class="btn btn-secondary m-2" type="'submit" [disabled]="form.invalid">Отправить</button>
+  </form>
+</div>

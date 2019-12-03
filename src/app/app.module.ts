@@ -5,8 +5,9 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {UsersComponent} from './users/users.component';
 import {AppComponent} from './app.component';
 import {HttpCComponent} from './http-c/http-c.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthInterceptor} from './auth.interceptor';
+import { FormsComponent } from './forms/forms.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -18,12 +19,14 @@ const INTERCEPTOR_PROVIDER: Provider = {
   declarations: [
     AppComponent,
     UsersComponent,
-    HttpCComponent
+    HttpCComponent,
+    FormsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [INTERCEPTOR_PROVIDER ],
   bootstrap: [AppComponent]

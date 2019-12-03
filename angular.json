@@ -120,6 +120,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-learn"
+    }
+  },
+  "defaultProject": "ng-learn",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

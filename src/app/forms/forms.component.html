@@ -3,11 +3,18 @@
     <h1>Angular Forms</h1>
 
     <div>
-      <label>Email</label>
+      <pre> {{ form.get('email').invalid}}</pre>
+      <label>Email  </label>
       <input type="text" placeholder="Email" formControlName="email">
       <div class="validation" *ngIf="form.get('email').invalid && form.get('email').touched">
         <small class="text-danger" *ngIf="form.get('email').errors.required">Can not be empty</small>
         <small class="text-danger" *ngIf="form.get('email').errors.email">Enter Valid mail</small>
+        <small class="text-danger" *ngIf="form.get('email').errors.restrictedEmail">
+          the <small class="font-weight-bold"> {{form.get('email').value}} </small> is already used.
+        </small>
+        <small class="text-danger" *ngIf="form.get('email').errors.uniqueEmail">
+          the <small class="font-weight-bold"> {{form.get('email').value}} </small> is already used.
+        </small>
       </div>
     </div>
 
@@ -47,12 +54,12 @@
       <button class="btn btn-secondary m-2" type='button' (click)="setCapital()">Выбрать столицу</button>
     </div>
 
-    <div class="card">
+    <div class="card" formGroupName="skills">
       <h2>Ваши навыки</h2>
       <button class="btn btn-secondary  m-2" type='button' (click)="addSkill()">Добавить умение</button>
       <div *ngFor="let control of form.get('skills').controls;let idx = index">
         <label>Skill n {{idx + 1}}:</label>
-        <input type="text">
+        <input type="text" [formControlName]="idx">
       </div>
     </div>
 

@@ -1,3 +1,30 @@
 <!--<app-users></app-users>-->
 <!--<app-http-c></app-http-c>-->
-<app-forms></app-forms>
+<!--<app-forms></app-forms>-->
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['/']">NG Learn</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/forms']">Forms</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/users']">Users</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/posts']">Posts</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-secondary m-1" (click)="auth.logIn()">LogIn</button>
+        <button class="btn btn-secondary m-1" (click)="auth.logOut()">LogOut</button>
+      </form>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

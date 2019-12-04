@@ -13,6 +13,6 @@ export class UsersService {
   }
 
   getUser(id): Observable<any> {
-    return this.http.get<any>(`${this.jsonPlaceholderURL}user s/${id}`);
+    return this.http.get<any>(`${this.jsonPlaceholderURL}users/${id}`);
   }
 }

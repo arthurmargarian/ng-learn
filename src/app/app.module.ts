@@ -1,19 +1,18 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, Provider} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-
 import {UsersComponent} from './users/users.component';
 import {AppComponent} from './app.component';
 import {HttpCComponent} from './http-c/http-c.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthInterceptor} from './auth.interceptor';
-import { FormsComponent } from './forms/forms.component';
-import { PostsComponent } from './posts/posts.component';
+import {FormsComponent} from './forms/forms.component';
+import {PostsComponent} from './posts/posts.component';
 import {AppRoutingModule} from './app-routing.module';
-import { HomeComponent } from './home/home.component';
-import { PostComponent } from './post/post.component';
-import { AboutExtraComponent } from './about-extra/about-extra.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
+import {HomeComponent} from './home/home.component';
+import {PostComponent} from './post/post.component';
+import {ErrorPageComponent} from './error-page/error-page.component';
+import {SharedModule} from './shared/shared.module';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -30,7 +29,6 @@ const INTERCEPTOR_PROVIDER: Provider = {
     PostsComponent,
     HomeComponent,
     PostComponent,
-    AboutExtraComponent,
     ErrorPageComponent,
   ],
   imports: [
@@ -39,8 +37,9 @@ const INTERCEPTOR_PROVIDER: Provider = {
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    SharedModule,
   ],
-  providers: [INTERCEPTOR_PROVIDER ],
+  providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule {

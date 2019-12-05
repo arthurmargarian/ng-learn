@@ -15,13 +15,12 @@
       <h5 class="card-title">{{currentUser.name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{currentUser.email}}</h6>
       <ul class="list-group">
-        <li class="list-group-item">Address : <strong>{{currentUser.address.street}}/{{currentUser.address.city}} </strong></li>
+        <li class="list-group-item">Address : <strong>{{currentUser.address.street}}
+          /{{currentUser.address.city}} </strong></li>
         <li class="list-group-item">Phone : <strong> {{currentUser.phone}}</strong></li>
         <li class="list-group-item">Website : <strong> {{currentUser.website}}</strong></li>
         <li class="list-group-item">Company : <strong>{{currentUser.company.name}}</strong></li>
       </ul>
     </div>
   </div>
-  <a href="" [routerLink]="['/users','extra']">Extra</a>
-  <router-outlet></router-outlet>
 </div>

@@ -1,0 +1,11 @@
+<div class="card" style="width: 58rem;">
+  <div class="card-body">
+    <h5 class="card-title">About</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+      content.
+    </p>
+    <button class="btn btn-outline-primary" [routerLink]="['/about','extra']">Show Extra</button>
+    <button class="btn btn-outline-primary m-2" [routerLink]="['/about']">Hide Extra</button>
+    <router-outlet></router-outlet>
+  </div>
+</div>

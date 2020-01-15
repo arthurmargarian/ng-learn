@@ -33,6 +33,6 @@ export class PostsComponent implements OnInit {
         showIds: true
       },
       fragment: 'programFragment'
-    })
+    });
   }
 }

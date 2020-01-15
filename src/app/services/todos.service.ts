@@ -20,8 +20,8 @@ export class TodosService {
   addTodo(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo, {
       headers: new HttpHeaders({
-        'MyCustomHeader': Math.random().toString(),
-        'MyCustomHeader2': Math.random().toString(),
+        MyCustomHeader: Math.random().toString(),
+        MyCustomHeader2: Math.random().toString(),
       })
     });
   }
@@ -29,7 +29,7 @@ export class TodosService {
   fetchTodos(): Observable<Todo[]> {
     let params = new HttpParams();
     params = params.append('_limit', '5');
-    params = params.append('custom', 'any');
+    // params = params.append('custom', 'any');
     return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos', {
       params,
       observe: 'response'
@@ -65,7 +65,7 @@ export class TodosService {
   doneTodo(id: number): Observable<Todo> {
     return this.http.put<Todo>(`https://jsonplaceholder.typicode.com/todos/${id}`, {
       done: true
-    },{
+    }, {
       responseType: 'json'
     });
   }

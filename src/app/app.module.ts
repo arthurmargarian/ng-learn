@@ -13,6 +13,7 @@ import {HomeComponent} from './home/home.component';
 import {PostComponent} from './post/post.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
 import {SharedModule} from './shared/shared.module';
+import {CommonModule} from "@angular/common";
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -38,6 +39,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
     ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
+    CommonModule
   ],
   providers: [INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
